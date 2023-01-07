@@ -14,8 +14,9 @@
 #  index_articles_on_user_id  (user_id)
 #
 class Article < ApplicationRecord
-    validates :title, presence: true
+    has_one_attached :eyecatch
 
+    validates :title, presence: true
     validates :content, presence: true
     validates :content, length: {minimum: 2 }
     validates :content, uniqueness: true
@@ -32,6 +33,10 @@ class Article < ApplicationRecord
 
     def author_name
         user.display_name
+    end
+
+    def like_count
+        likes.count
     end
 
     private
