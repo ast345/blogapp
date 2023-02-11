@@ -1,7 +1,7 @@
 class CommentsController < ApplicationController
 
     def index
-    	article = Articlefind(params[:article_id])
+    	article = Article.find(params[:article_id])
         comments = article.comments
 	    render json: comments
     end
