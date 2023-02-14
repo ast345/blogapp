@@ -1,7 +1,5 @@
 class NotificationFromAdminJob < ApplicationJob
-	queue_as :dafault
-    include Sidekiq::Job
-    include Sidekiq::Status::Worker
+	queue_as :default
 
     def perform(msg)
         User.all.each do |user|
