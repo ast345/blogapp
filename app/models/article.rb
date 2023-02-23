@@ -18,7 +18,7 @@ class Article < ApplicationRecord
 
     validates :title, presence: true
     validates :content, presence: true
-    # validates :content, length: {minimum: 2 }
+    validates :title, length: {minimum: 2 }
     # validates :content, uniqueness: true
 
     # validate :validate_title_and_content_length
